@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 
 type Theme = 'dark' | 'light' | 'system'
 
@@ -20,15 +20,8 @@ const initialState: ThemeProviderState = {
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 
-export function ThemeContext({
-                                  children,
-                                  defaultTheme = 'system',
-                                  storageKey = 'vite-ui-theme',
-                                  ...props
-                              }: ThemeProviderProps) {
-    const [theme, _setTheme] = useState<Theme>(
-        () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-    )
+export function ThemeContext({ children, defaultTheme = 'system', storageKey = 'vite-ui-theme', ...props }: ThemeProviderProps) {
+    const [theme, _setTheme] = useState<Theme>(() => (localStorage.getItem(storageKey) as Theme) || defaultTheme)
 
     useEffect(() => {
         const root = window.document.documentElement
@@ -37,11 +30,8 @@ export function ThemeContext({
 
         const applyTheme = (theme: Theme) => {
             root.classList.remove('light', 'dark')
-
             const systemTheme = mediaQuery.matches ? 'dark' : 'light'
-
             const effectiveTheme = theme === 'system' ? systemTheme : theme
-
             root.classList.add(effectiveTheme)
         }
 
@@ -75,4 +65,4 @@ export function ThemeContext({
     )
 }
 
-export default ThemeProviderContext;
+export default ThemeProviderContext

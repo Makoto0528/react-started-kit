@@ -1,7 +1,6 @@
-import { Button } from '@/Components/UI/Button'
+import { ThemeSwitch } from '@/Components/ThemeSwitch'
 import { Separator } from '@/Components/UI/Separator'
 import { SidebarTrigger } from '@/Components/UI/Sidebar'
-import {ThemeSwitch} from "@/Components/ThemeSwitch";
 
 export function SiteHeader() {
     return (

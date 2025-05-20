@@ -1,10 +1,9 @@
 import { ChartAreaInteractive } from '@/Components/ChartAreaInteractive'
 import { DataTable } from '@/Components/DataTable'
 import { SectionCards } from '@/Components/SectionCards'
-import * as React from 'react'
 
 import data from '@/Data/data.json'
-import AppLayout from "@/Layouts/AppLayout";
+import AppLayout from '@/Layouts/AppLayout'
 
 export default function Dashboard() {
     return (
