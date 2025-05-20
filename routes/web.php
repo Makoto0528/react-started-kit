@@ -10,3 +10,5 @@ Route::get('/', fn () => Inertia::render('Welcome', [
     'laravelVersion' => Application::VERSION,
     'phpVersion' => PHP_VERSION,
 ]));
+
+Route::get('/dashboard', fn () => Inertia::render('Dashboard'));

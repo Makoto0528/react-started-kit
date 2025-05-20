@@ -11,7 +11,7 @@ import { Separator } from '@/Components/UI/Separator'
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/Components/UI/Sheet'
 import { Skeleton } from '@/Components/UI/Skeleton'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/Components/UI/Tooltip'
-import { useIsMobile } from '@/Hooks/use-mobile'
+import { useIsMobile } from '@/Hooks/useIsMobile'
 import { cn } from '@/Lib/utils'
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state'
