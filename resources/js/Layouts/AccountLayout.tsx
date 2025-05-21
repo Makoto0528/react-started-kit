@@ -64,7 +64,7 @@ export default function AccountLayout({ children }: PropsWithChildren) {
     return (
         <div className="px-4 py-2">
             <div className="mb-8 space-y-0.5">
-                <h2 className="text-xl font-semibold tracking-tight">Settings</h2>
+                <h2 className="text-xl font-semibold tracking-tight">Profile</h2>
                 <p className="text-muted-foreground text-sm">Manage your profile and account settings</p>
             </div>
 
@@ -110,7 +110,7 @@ export default function AccountLayout({ children }: PropsWithChildren) {
                 <Separator className="my-0.5 md:hidden" />
 
                 <div className="flex-1 md:max-w-2xl">
-                    <section className="max-w-xl mt-6 space-y-12">{children}</section>
+                    <section className="max-w-xl mt-6 md:mt-0 space-y-12">{children}</section>
                 </div>
             </div>
         </div>
