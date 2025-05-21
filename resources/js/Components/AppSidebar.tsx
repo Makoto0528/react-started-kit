@@ -5,7 +5,6 @@ import {
     FileTextIcon,
     FolderIcon,
     HelpCircleIcon,
-    GraduationCapIcon,
     ClipboardListIcon,
     SquaresExcludeIcon,
     SearchIcon,
@@ -27,6 +26,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/Components/UI/Sidebar'
+import AppLogoIcon from '@/Components/AppLogoIcon'
 
 const data = {
     user: {
@@ -105,8 +105,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     <SidebarMenuItem>
                         <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
                             <a href="#">
-                                <GraduationCapIcon className="!size-5" />
-                                <span className="text-base font-semibold">Acme Inc.</span>
+                                <AppLogoIcon className="!size-5 dark:text-white" fill="currentColor" />
+                                <span className="text-base font-semibold">React Started Kit</span>
                             </a>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
