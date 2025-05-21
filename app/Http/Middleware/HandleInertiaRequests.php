@@ -2,10 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Resources\QuoteResource;
+use App\Http\Resources\UserResource;
 use App\Models\Quote;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Cache;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
 
@@ -39,20 +39,38 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request) : array
     {
-        /** @var Collection<int, Quote> $quotes */
-        $quotes = Cache::remember('share_quotes', 60, fn () => Quote::inRandomOrder()->limit(20)->get());
 
         // @phpstan-ignore-next-line
         return [
             ...parent::share($request),
             'auth' => [
-                'user' => null,
+                'user' => fn () : ?UserResource => $this->resolveAuthenticatedUser($request),
             ],
-            'quote' => fn () => $quotes->random(),
+            'quote' => fn () : ?QuoteResource => $this->resolveRandomQuote(),
             'ziggy' => fn () => [
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
         ];
+    }
+
+    /**
+     * Retrieves the authenticated user from the request and returns it as a UserResource.
+     */
+    private function resolveAuthenticatedUser(Request $request) : ?UserResource
+    {
+        $user = $request->user();
+
+        return $user ? new UserResource($user) : null;
+    }
+
+    /**
+     * Returns a single random quote.
+     */
+    private function resolveRandomQuote() : ?QuoteResource
+    {
+        $quoteRandom = Quote::inRandomOrder()->limit(1)->get();
+
+        return $quoteRandom ? new QuoteResource($quoteRandom) : null;
     }
 }

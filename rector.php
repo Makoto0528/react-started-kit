@@ -39,7 +39,5 @@ return static function (RectorConfig $rectorConfig) : void {
     $rectorConfig->importNames();
     $rectorConfig->parallel();
 
-    $rectorConfig->phpstanConfig(__DIR__ . '/phpstan.neon');
-
     $rectorConfig->phpVersion(PhpVersion::PHP_84);
 };

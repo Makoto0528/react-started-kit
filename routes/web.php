@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -11,9 +12,10 @@ Route::get('/', fn () => Inertia::render('Welcome', [
     'phpVersion' => PHP_VERSION,
 ]));
 
-Route::get('/dashboard', fn () => Inertia::render('Dashboard'));
+Route::get('/dashboard', fn () => Inertia::render('Dashboard'))->name('dashboard');
 
-Route::get('login', fn () => Inertia::render('Auth/Login'))->name('login');
+Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
+Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
 Route::group(['prefix' => 'profile'], function () {
     Route::get('/', fn () => Inertia::render('Profile/General'));
