@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Quote;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tighten\Ziggy\Ziggy;
@@ -36,12 +37,15 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request) : array
     {
+        $quotes = Quote::inRandomOrder()->limit(20)->get();
+
         // @phpstan-ignore-next-line
         return [
             ...parent::share($request),
             'auth' => [
                 'user' => null,
             ],
+            'quote' => fn () => $quotes->random(),
             'ziggy' => fn () => [
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),

@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
+use App\Spiders\DailyQuoteSpider;
+use Illuminate\Support\Facades\Schedule;
+use RoachPHP\Roach;
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+Schedule::call(function () {
+    Roach::collectSpider(DailyQuoteSpider::class);
+})->daily();

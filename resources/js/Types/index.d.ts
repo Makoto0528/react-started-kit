@@ -6,8 +6,15 @@ export type UserResource = {
     profile_photo_url: string
 }
 
+export type QuoteResource = {
+    phrase: string
+    author: string
+    author_info: string
+}
+
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
     auth: {
         user: UserResource
     }
+    quote: QuoteResource
 }
