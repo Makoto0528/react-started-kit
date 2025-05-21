@@ -43,12 +43,14 @@ class DailyQuoteSpider extends BasicSpider
     public function parse(Response $response) : Generator
     {
         $items = $response->filter('blockquote')
-            ->each(fn (Crawler $node) => [
+            ->each(fn (Crawler $node) : array => [
                 'phrase' => $node->filter('p')->text(),
                 'author' => $node->filter('footer a')->text(),
                 'author_info' => $node->filter('footer em')->text(),
-                'tags' => $node->filter('.badge a')->each(fn (Crawler $node) => $node->text()),
+                'tags' => $node->filter('.badge a')->each(fn (Crawler $node) : string => $node->text()),
             ]);
+
+        $items = array_filter($items, 'is_array');
 
         foreach ($items as $item) {
             yield $this->item($item);
