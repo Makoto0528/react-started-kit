@@ -1,5 +1,6 @@
 import '../css/app.css'
 import './bootstrap'
+import 'unfonts.css';
 
 import { ThemeContext } from '@/Contexts/ThemeContext/ThemeContext'
 import { createInertiaApp } from '@inertiajs/react'
