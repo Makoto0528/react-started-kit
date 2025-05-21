@@ -5,6 +5,7 @@ import { Button } from '@/Components/UI/Button'
 import { cn } from '@/Lib/utils'
 import { Link, router } from '@inertiajs/react'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/Components/UI/Select'
+import { useLocation } from '@/Hooks/useLocation'
 
 type AccountNavigationProps = {
     title: string
@@ -52,9 +53,10 @@ const items: AccountNavigationProps[] = [
 
 
 export default function AccountLayout({ children }: PropsWithChildren) {
-    const [val, setVal] = useState('/profile')
+    const location = useLocation()
+    const [val, setVal] = useState(location.pathname ?? '/profile')
 
-    const currentPath = window.location.pathname;
+    const currentPath = location.pathname;
 
     const handleSelect = (e: string) => {
         setVal(e)
@@ -62,7 +64,7 @@ export default function AccountLayout({ children }: PropsWithChildren) {
     }
 
     return (
-        <div className="px-4 py-2">
+        <div className="px-0 md:px-4 py-2">
             <div className="mb-8 space-y-0.5">
                 <h2 className="text-xl font-semibold tracking-tight">Profile</h2>
                 <p className="text-muted-foreground text-sm">Manage your profile and account settings</p>
