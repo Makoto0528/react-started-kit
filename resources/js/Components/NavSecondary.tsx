@@ -1,6 +1,6 @@
 'use client'
 
-import {type LucideIcon } from 'lucide-react'
+import { type LucideIcon } from 'lucide-react'
 import * as React from 'react'
 
 import { SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/Components/UI/Sidebar'

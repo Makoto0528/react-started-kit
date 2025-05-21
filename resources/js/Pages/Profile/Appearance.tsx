@@ -1,12 +1,10 @@
-import AppLayout from "@/Layouts/AppLayout";
-import AccountLayout from "@/Layouts/AccountLayout";
+import AccountLayout from '@/Layouts/AccountLayout'
+import AppLayout from '@/Layouts/AppLayout'
 
 export default function Appearance() {
     return (
         <AppLayout title={'Account Settings'}>
-            <AccountLayout>
-                Appearance
-            </AccountLayout>
+            <AccountLayout>Appearance</AccountLayout>
         </AppLayout>
     )
 }

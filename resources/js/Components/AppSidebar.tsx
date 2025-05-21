@@ -1,18 +1,19 @@
 import {
     ChartNoAxesColumnIcon,
-    LayoutDashboardIcon,
+    ClipboardListIcon,
+    CogIcon,
     DatabaseIcon,
     FileTextIcon,
     FolderIcon,
     HelpCircleIcon,
-    ClipboardListIcon,
-    SquaresExcludeIcon,
+    LayoutDashboardIcon,
     SearchIcon,
-    CogIcon,
+    SquaresExcludeIcon,
     UsersIcon,
 } from 'lucide-react'
 import * as React from 'react'
 
+import AppLogoIcon from '@/Components/AppLogoIcon'
 import { NavDocuments } from '@/Components/NavDocuments'
 import { NavMain } from '@/Components/NavMain'
 import { NavSecondary } from '@/Components/NavSecondary'
@@ -26,7 +27,6 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/Components/UI/Sidebar'
-import AppLogoIcon from '@/Components/AppLogoIcon'
 
 const data = {
     user: {

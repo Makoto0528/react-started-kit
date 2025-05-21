@@ -1,4 +1,4 @@
-import { CreditCardIcon, EllipsisVerticalIcon, LogOutIcon, BellIcon, CircleUserRoundIcon } from 'lucide-react'
+import { BellIcon, CircleUserRoundIcon, CreditCardIcon, EllipsisVerticalIcon, LogOutIcon } from 'lucide-react'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/Components/UI/Avatar'
 import {

@@ -1,12 +1,10 @@
-import AppLayout from "@/Layouts/AppLayout";
-import AccountLayout from "@/Layouts/AccountLayout";
+import AccountLayout from '@/Layouts/AccountLayout'
+import AppLayout from '@/Layouts/AppLayout'
 
 export default function Security() {
     return (
         <AppLayout title={'Account Settings'}>
-            <AccountLayout>
-              Security
-            </AccountLayout>
+            <AccountLayout>Security</AccountLayout>
         </AppLayout>
     )
 }

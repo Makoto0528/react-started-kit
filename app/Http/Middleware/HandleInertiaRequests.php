@@ -36,11 +36,12 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request) : array
     {
+        // @phpstan-ignore-next-line
         return [
-            'auth' => [
-                'user' => $request->user(),
-            ],
             ...parent::share($request),
+            'auth' => [
+                'user' => null,
+            ],
             'ziggy' => fn () => [
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
