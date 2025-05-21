@@ -1,0 +1,36 @@
+#
+#   Refer for explanation to the following link:
+#   https://lefthook.dev/configuration/
+#
+pre-commit:
+  parallel: true
+  commands:
+    typescript-check:
+      glob: '*.{ts,tsx}'
+      run: vendor/bin/sail npx tsc --noEmit
+
+    pint:
+      glob: '*.php'
+      run: vendor/bin/sail bin pint {staged_files} -q
+      stage_fixed: true
+
+    eslint:
+      glob: '*.{js,jsx,ts,tsx}'
+      exclude:
+        - 'public/*.{js,jsx,ts,tsx,md,yml,yaml,json,css}'
+        - 'resources/js/Components/UI/*.tsx'
+      run: vendor/bin/sail npx eslint --fix {staged_files}
+
+    prettier:
+      glob: '*.{js,jsx,ts,tsx,md,yml,yaml,json,css}'
+      exclude:
+        - 'public/*.{js,jsx,ts,tsx,md,yml,yaml,json,css}'
+        - 'resources/js/Components/UI/*.tsx'
+      run: vendor/bin/sail npx prettier --write {staged_files}
+      stage_fixed: true
+
+test:
+  parallel: true
+  commands:
+    tests:
+      run: vendor/bin/sail php artisan test --compact --parallel
