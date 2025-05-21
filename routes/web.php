@@ -13,6 +13,7 @@ Route::get('/', fn () => Inertia::render('Welcome', [
 
 Route::get('/dashboard', fn () => Inertia::render('Dashboard'));
 
+Route::get('login', fn () => Inertia::render('Auth/Login'))->name('login');
 
 Route::group(['prefix' => 'profile'], function () {
     Route::get('/', fn () => Inertia::render('Profile/General'));
