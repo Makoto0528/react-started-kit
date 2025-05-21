@@ -2,6 +2,7 @@ import 'unfonts.css'
 import '../css/app.css'
 import './bootstrap'
 
+import { WrapperTheme } from '@/Components/WrapperTheme'
 import { ThemeContext } from '@/Contexts/ThemeContext/ThemeContext'
 import { createInertiaApp } from '@inertiajs/react'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
@@ -17,7 +18,9 @@ createInertiaApp({
 
         root.render(
             <ThemeContext>
-                <App {...props} />
+                <WrapperTheme>
+                    <App {...props} />
+                </WrapperTheme>
             </ThemeContext>
         )
     },
