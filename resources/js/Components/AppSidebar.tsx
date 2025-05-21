@@ -1,20 +1,17 @@
 import {
-    IconCamera,
-    IconChartBar,
-    IconDashboard,
-    IconDatabase,
-    IconFileAi,
-    IconFileDescription,
-    IconFileWord,
-    IconFolder,
-    IconHelp,
-    IconInnerShadowTop,
-    IconListDetails,
-    IconReport,
-    IconSearch,
-    IconSettings,
-    IconUsers,
-} from '@tabler/icons-react'
+    ChartNoAxesColumnIcon,
+    LayoutDashboardIcon,
+    DatabaseIcon,
+    FileTextIcon,
+    FolderIcon,
+    HelpCircleIcon,
+    GraduationCapIcon,
+    ClipboardListIcon,
+    SquaresExcludeIcon,
+    SearchIcon,
+    CogIcon,
+    UsersIcon,
+} from 'lucide-react'
 import * as React from 'react'
 
 import { NavDocuments } from '@/Components/NavDocuments'
@@ -41,109 +38,61 @@ const data = {
         {
             title: 'Dashboard',
             url: '#',
-            icon: IconDashboard,
+            icon: LayoutDashboardIcon,
         },
         {
             title: 'Lifecycle',
             url: '#',
-            icon: IconListDetails,
+            icon: ClipboardListIcon,
         },
         {
             title: 'Analytics',
             url: '#',
-            icon: IconChartBar,
+            icon: ChartNoAxesColumnIcon,
         },
         {
             title: 'Projects',
             url: '#',
-            icon: IconFolder,
+            icon: FolderIcon,
         },
         {
             title: 'Team',
             url: '#',
-            icon: IconUsers,
-        },
-    ],
-    navClouds: [
-        {
-            title: 'Capture',
-            icon: IconCamera,
-            isActive: true,
-            url: '#',
-            items: [
-                {
-                    title: 'Active Proposals',
-                    url: '#',
-                },
-                {
-                    title: 'Archived',
-                    url: '#',
-                },
-            ],
-        },
-        {
-            title: 'Proposal',
-            icon: IconFileDescription,
-            url: '#',
-            items: [
-                {
-                    title: 'Active Proposals',
-                    url: '#',
-                },
-                {
-                    title: 'Archived',
-                    url: '#',
-                },
-            ],
-        },
-        {
-            title: 'Prompts',
-            icon: IconFileAi,
-            url: '#',
-            items: [
-                {
-                    title: 'Active Proposals',
-                    url: '#',
-                },
-                {
-                    title: 'Archived',
-                    url: '#',
-                },
-            ],
+            icon: UsersIcon,
         },
     ],
     navSecondary: [
         {
             title: 'Settings',
             url: '#',
-            icon: IconSettings,
+            icon: CogIcon,
         },
         {
             title: 'Get Help',
             url: '#',
-            icon: IconHelp,
+            icon: HelpCircleIcon,
         },
         {
             title: 'Search',
             url: '#',
-            icon: IconSearch,
+            icon: SearchIcon,
         },
     ],
     documents: [
         {
             name: 'Data Library',
             url: '#',
-            icon: IconDatabase,
+            icon: DatabaseIcon,
         },
         {
             name: 'Reports',
             url: '#',
-            icon: IconReport,
+            icon: SquaresExcludeIcon,
         },
         {
             name: 'Word Assistant',
             url: '#',
-            icon: IconFileWord,
+            icon: FileTextIcon,
         },
     ],
 }
@@ -156,7 +105,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     <SidebarMenuItem>
                         <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
                             <a href="#">
-                                <IconInnerShadowTop className="!size-5" />
+                                <GraduationCapIcon className="!size-5" />
                                 <span className="text-base font-semibold">Acme Inc.</span>
                             </a>
                         </SidebarMenuButton>

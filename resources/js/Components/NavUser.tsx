@@ -1,4 +1,4 @@
-import { IconCreditCard, IconDotsVertical, IconLogout, IconNotification, IconUserCircle } from '@tabler/icons-react'
+import { CreditCardIcon, EllipsisVerticalIcon, LogOutIcon, BellIcon, CircleUserRoundIcon } from 'lucide-react'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/Components/UI/Avatar'
 import {
@@ -40,7 +40,7 @@ export function NavUser({
                                 <span className="truncate font-medium">{user.name}</span>
                                 <span className="text-muted-foreground truncate text-xs">{user.email}</span>
                             </div>
-                            <IconDotsVertical className="ml-auto size-4" />
+                            <EllipsisVerticalIcon className="ml-auto size-4" />
                         </SidebarMenuButton>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent
@@ -64,21 +64,21 @@ export function NavUser({
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>
                             <DropdownMenuItem>
-                                <IconUserCircle />
+                                <CircleUserRoundIcon />
                                 Account
                             </DropdownMenuItem>
                             <DropdownMenuItem>
-                                <IconCreditCard />
+                                <CreditCardIcon />
                                 Billing
                             </DropdownMenuItem>
                             <DropdownMenuItem>
-                                <IconNotification />
+                                <BellIcon />
                                 Notifications
                             </DropdownMenuItem>
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
-                            <IconLogout />
+                            <LogOutIcon />
                             Log out
                         </DropdownMenuItem>
                     </DropdownMenuContent>
